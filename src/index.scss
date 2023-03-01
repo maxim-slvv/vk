@@ -1,0 +1,123 @@
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ol,ul,li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+/*--------------------*/
+
+body {
+  margin: 0;
+  font-family: 'Source Sans 3', sans-serif;
+  background-color: #edeef0;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+}
+
+[class*="__container"] {
+  max-width: 1106px;
+  
+  margin: 0 auto; 
+}
+
+.header{
+  background-color: #ffffff;
+  height: 48px;
+ 
+  &__container{
+    display: flex;
+    align-items: center;
+  
+  }
+  &__logo{
+    padding-right: 30px;
+  }
+  &__input{
+   
+    //? Нужно покрасить текст который мы вводим
+    margin-right: 15px;
+    input{
+      flex: 1 0 auto;
+      ::placeholder{
+        color: #99a2ad;
+      }
+      //!тоже вот кстати, чудесным образом svg мы передали в хер пойми какой кодировке
+      //!и указали что в utf-8 она станет картинкой
+      background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20opacity%3D%22.92%22%3E%3Cpath%20opacity%3D%22.1%22%20d%3D%22M0%200H16V16H0z%22%2F%3E%3Cpath%20d%3D%22M6.5%201a5.5%205.5%200%200%201%204.383%208.823l3.896%203.9a.75.75%200%200%201-1.061%201.06l-3.895-3.9A5.5%205.5%200%201%201%206.5%201zm0%201.5a4%204%200%201%200%200%208%204%204%200%200%200%200-8z%22%20fill%3D%22%23818c99%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);
+      background-position: 11px 9px;
+      background-repeat: no-repeat;
+      width: 230px;
+      height: 32px;
+      padding: 9px 9px 9px 35px;
+      background-color: #edeef0;
+      border-radius: 10px;
+    }
+  }
+  &__notice{
+    display: flex;
+    align-items: center;
+    padding: 0px 12px;
+    color: #99a2ad;
+  }
+  &__player{
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+    
+    color: #626d7a;
+    :nth-child(1){
+      margin-right: 3px;      
+    }
+    :nth-child(2){
+      margin-right: 4px;      
+    }
+    p{
+      margin-left: 14px;
+    }
+  }
+  button{
+    display: flex;
+    align-items: center;
+    color: #99a2ad;//! интересно svg можно красить так
+    background-color: inherit;
+  }
+  &__dots{
+    height: 48px;
+    width: 48px;
+    padding: 0px 6px;
+    color: #99a2ad;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__user{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    img{
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+      border-radius: 50%;
+    }
+    color: #99a2ad;
+  }
+}
+
+.main{
+  
+}
+
+
+
