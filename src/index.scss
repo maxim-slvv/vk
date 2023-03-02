@@ -32,6 +32,7 @@ body {
 .header{
   background-color: #ffffff;
   height: 48px;
+  margin-bottom: 14px;
  
   &__container{
     display: flex;
@@ -40,6 +41,8 @@ body {
   }
   &__logo{
     padding-right: 30px;
+    display: flex;
+    align-items: center;
   }
   &__input{
    
@@ -116,8 +119,16 @@ body {
 }
 
 .main{
-  
+  .link{
+    margin-right: 5px;
+  }
 }
 
+.main__container{
+  display: flex;
+}
 
-
+.main__dynamic{
+  display: flex;
+  flex-direction: column;
+}

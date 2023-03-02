@@ -1,0 +1,16 @@
+li{
+    width: 163px;
+    height: 30px;
+    padding: 0px 6px;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    cursor: pointer;
+    img{
+        margin-right: 11px;
+    }
+}
+li:hover{
+ 
+    background-color: #dfe1e4;
+}
