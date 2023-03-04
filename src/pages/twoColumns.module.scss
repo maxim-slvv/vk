@@ -1,0 +1,23 @@
+.content{
+    display: flex;
+}
+
+.section{
+    flex: 0 0 552px;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #dfe2e5;
+    border-radius: 10px;
+    margin-right: 13px;
+
+}
+
+.aside{
+    flex: 1 0 auto;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #dfe2e5;
+    border-radius: 10px;
+    padding: 8px;
+}
+
