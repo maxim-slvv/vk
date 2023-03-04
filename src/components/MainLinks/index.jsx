@@ -1,5 +1,6 @@
-import styles from './MainLinks.scss'
+import styles from './MainLinks.module.scss'
 
+console.log(styles)
 function MainLinks(props){
    const svg = [
         {1: '../img/menu__icon/1.svg'},
@@ -17,10 +18,9 @@ function MainLinks(props){
         {13: '../img/menu__icon/13.svg'},
         {14: '../img/menu__icon/14.svg'},
     ]
-   console.log(props.item['id'])
     return(
-        //!НУжно стилизовать каждый LI css модулями
-                <li style={styles}>
+      
+                <li className={styles.links}>
                     <img src={svg[props.item['id']-1][props.item['id']]} alt="" />
                     <span>{props.item['name']}</span>
                 </li>
