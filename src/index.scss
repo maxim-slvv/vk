@@ -28,7 +28,7 @@ body {
   
   margin: 0 auto; 
 }
-
+ //!------------------------------HEADER---------------------------------------
 .header{
   background-color: #ffffff;
   height: 48px;
@@ -117,18 +117,24 @@ body {
     color: #99a2ad;
   }
 }
+ //!------------------------------MAIN---------------------------------------
 
 .main{
   .link{
     margin-right: 5px;
   }
+  &__container{
+    display: flex;
+  }
+  &__dynamic{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    flex: 1 0 auto; //позволяю расширяться области - упрется в контейнер
+  }
 }
 
-.main__container{
-  display: flex;
-}
 
-.main__dynamic{
-  display: flex;
-  flex-direction: column;
-}
+//* МОЖЕТ СДЕЛАЮ ЧТО БЫ НА ВСЕМ ДОКУМЕНТЕ БЫЛА СТАТИЧНОСТЬ - а в отдельных местах прокрутка...
+
+
