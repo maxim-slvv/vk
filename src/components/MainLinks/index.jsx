@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom';
-
 import styles from './MainLinks.module.scss'
 
-
-console.log(styles)
 function MainLinks(props){
    const svg = [
         {1: '../img/menu__icon/1.svg'},
@@ -22,17 +19,14 @@ function MainLinks(props){
         {14: '../img/menu__icon/14.svg'},
     ]
     return(
-
         <Link to={props.item['link']} className={styles.link}>
             <li className={styles.links}>
                 <img src={svg[props.item['id']-1][props.item['id']]} alt="" />
                 <span>{props.item['name']}</span>
             </li>
-        </Link>
-                
+        </Link>  
     );
 }
-
 export default MainLinks;
 
 
