@@ -4,13 +4,35 @@ import messages from './Messages.module.scss'
 import MessageCard from '../components/MessageCard';
 
 function Messages() {
+    //сделал временный массив что бы просто проверить карточки
     const RandomMessages = [
-        {user: '../../img/pages/messages/user__1.jpg',
-         username: 'Ruslan Muling', preview: 'Текст сообщения', visit: 'вчера'},
+        {username: 'Юра Рябцев', 
+        avatar: '../../img/pages/messages/user__1.jpg',
+        preview: 'я запустил стрим, заходи...',
+        sender: 'not-you',
+        visit: '12 мин'},
+
+        {username: 'Ruslan Muling', 
+        avatar: '../../img/pages/messages/user__2.jpg',
+        preview: 'Привет, послушай песню, вчера сводил весь день...',
+        sender: 'not-you',
+        visit: '27 мин'},
+
+        {username: 'Daria Tensei', 
+        avatar: '../../img/pages/messages/user__3.jpg',
+        preview: 'Даша, дай списать 😁',
+        sender: 'you',
+        visit: '29 мин'},
+
+        {username: 'Андрей Лазаренко', 
+        avatar: '../../img/pages/messages/user__4.jpg',
+        preview: 'Я удалил доту..., проиграл отцу в споре, не хочешь в осу?😁',
+        sender: 'not-you',
+        visit: '37 мин'},
 
     ]
     
-    //фокусировка на поле - скрывает чаты и выводит подсказки для поиска
+    // фокусировка на поле - скрывает чаты и выводит подсказки для поиска
     const [onSearchFocus, setOnSearchFocus] = React.useState(true)
     const onFocusInput = () => {
         setOnSearchFocus(!(onSearchFocus))
@@ -51,17 +73,24 @@ function Messages() {
                 {
                         (inputSearchValue === '')?
                             <>
-                            <article>
-                                <MessageCard/>
-                                <MessageCard/>
-                                <MessageCard/>
+                            <article className={messages.scroll}>
+                                {RandomMessages.map((item)=>(
+                                        <MessageCard
+                                            props={item}
+                                            key={item.user}
+                                        />
+                                    ))}                                
                             </article>
                             </>
                         :
-                            <article>
-                                <br/><br/>
-                                Люди и сообщества
-                                <br/><br/><br/>
+                            <article className={messages.notFound}>
+                              
+                                <span>Ничего не найдено</span>
+                                
+                                <img src="../../img/pages/messages/not__found.png" alt="" />
+                               
+                               
+                             
                             </article>
                     }
             </section>

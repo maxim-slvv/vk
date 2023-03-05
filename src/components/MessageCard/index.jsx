@@ -1,18 +1,18 @@
 import styles from './MessageCard.module.scss'
 
-function MessageCard(){
+function MessageCard({props}){
     console.log(styles)
     return(
         <div className={styles.card}>
 
         <div className={styles.avatar}>
-          <img src="../../../img/pages/messages/user__1.jpg" alt="" />
+          <img src={props.avatar} alt="" />
         </div>
       
         <div className={styles.row}>
           <div className={styles.top}>
-            <div className={styles.name}>Ruslan Muling</div>
-            <div className={styles.visit}>16 фев</div>
+            <div className={styles.name}>{props.username}</div>
+            <div className={styles.visit}>{props.visit}</div>
             <div className={styles.options}>
               <img src="../../../img/pages/messages/options.svg" alt="" />
             </div>
@@ -22,17 +22,17 @@ function MessageCard(){
 
            
             {
-                (true)?  // АВАТАР + ТЕКСТ
+                (props.sender === 'you')?  // АВАТАР + ТЕКСТ
                 <>  
                 <img className={styles.img} src="../../../img/user__id1/small__photo.jpg" alt="" />
                 <span>
-                    текст сообщения: непрочитанное
+                    {props.preview}
                 </span>
                 </>
                 :        // ТОЛЬКО ТЕКСТ
-                <span>
-                    текст сообщения
-                </span>
+                <p>
+                    {props.preview}
+                </p>
             }
            
            
