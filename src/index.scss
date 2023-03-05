@@ -110,14 +110,65 @@ body {
     padding: 0 10px;
     height: 48px;
     color: #99a2ad;
+    position: relative;
     img{
       width: 32px;
       height: 32px;
       margin-right: 8px;
       border-radius: 50%;
     }
-    
+    //?выпадающее меню userDropMenu
+    //!тут бы еще запретить выделять текст
+    .user__drop{
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(255, 255, 255);
+      color: black;
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      top: 48px;
+      right: 0px;
+      border: 1px solid #dce1e6;
+      border-radius: 0px 0px 10px 10px;
+      -moz-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+
+      transform: translateY(0px);
+      animation-name: dropMenu;
+      animation-duration: 0.05s;
+      transition: all 0.10s linear;
+    }
+    @keyframes dropMenu{
+      0%{
+        transform: translateY(5px);
+      }
+      100%{
+        transform: translateY(0px);
+      }
+    }
+    .user__undrop{
+      opacity: 0;
+      transform: translateY(5px);
+      visibility: hidden;
+    }
+    @keyframes unDropMenu{
+      0%{
+        opacity: 0;
+      }
+      100%{
+        opacity: 1;
+      }
+    }
   }
+
+  
+
+
+
   // стили при наведении
   
   &__notice:hover,
