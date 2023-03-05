@@ -25,7 +25,9 @@ function MessageCard({props}){
                 (props.sender === 'you')?  // АВАТАР + ТЕКСТ
                 <>  
                 <img className={styles.img} src="../../../img/user__id1/small__photo.jpg" alt="" />
+                
                 <span>
+                  
                     {props.preview}
                 </span>
                 </>
