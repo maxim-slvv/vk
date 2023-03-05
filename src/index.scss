@@ -70,12 +70,13 @@ body {
     align-items: center;
     padding: 0px 12px;
     color: #99a2ad;
+    height: 48px;
   }
   &__player{
     display: flex;
-    flex: 1 0 auto;
     align-items: center;
-    
+    height: 48px;
+    padding: 0px 20px 0px 8px;
     color: #626d7a;
     :nth-child(1){
       margin-right: 3px;      
@@ -86,6 +87,9 @@ body {
     p{
       margin-left: 14px;
     }
+  }
+  &__space{
+    flex: 1 0 auto;
   }
   button{
     display: flex;
@@ -103,18 +107,28 @@ body {
     justify-content: center;
   }
   &__user{
-
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
+    padding: 0 10px;
+    height: 48px;
+    color: #99a2ad;
     img{
       width: 32px;
       height: 32px;
       margin-right: 8px;
       border-radius: 50%;
     }
-    color: #99a2ad;
+    
+  }
+  // стили при наведении
+  
+  &__notice:hover,
+  &__player:hover,
+  &__dots:hover,
+  &__user:hover{
+    background-color: rgb(243, 243, 243);
+    cursor: pointer;
   }
 }
  //!------------------------------MAIN---------------------------------------
