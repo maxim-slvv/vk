@@ -1,7 +1,7 @@
 import styles from './MessageCard.module.scss'
 
 function MessageCard({props}){
-    console.log(styles)
+
     return(
         <div className={styles.card}>
 

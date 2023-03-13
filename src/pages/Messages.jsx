@@ -1,10 +1,24 @@
 import React from 'react';
 import ourStyle from './twoColumns.module.scss' //общие стили
-import messages from './Messages.module.scss'
+
+import MessagesStyle from './Messages.module.scss'
 import MessageCard from '../components/MessageCard';
+import {RightMenu} from '../components/RightMenu/RightMenu'
 
 function Messages() {
-    //сделал временный массив что бы просто проверить карточки
+
+    //* Заготовка + тестовый массив
+    // const profiles = [
+    //     {
+    //     id: 1, 
+    //     username: 'Юра Рябцев',
+    //     avatar: '../../img/pages/messages/user__1.jpg',
+    //     isOnline: 'true',
+    //     visit: '5 минут',
+    //     post: [{id:1, text: '', picture: ''}],
+    //     messages: [{messageId:1, userId: 1, dialog: [{dialogId: 1}]}]
+    //     },
+    // ]
     const RandomMessages = [
         {username: 'Юра Рябцев', 
         avatar: '../../img/pages/messages/user__1.jpg',
@@ -51,7 +65,7 @@ function Messages() {
         <div className={ourStyle.content}>
             <section className={ourStyle.section}>
 
-                <div className={messages.search}>
+                <div className={MessagesStyle.search}>
                     <input type="text" value={inputSearchValue} onChange={InputChange} onFocus={onFocusInput} onBlur={onFocusInput}  placeholder='Поиск'/>
 
                     {/*//? и на них сделать Link что бы подсветка была */}
@@ -64,7 +78,7 @@ function Messages() {
                             </>
                         :
                             <>
-                            <div onClick={clearInput} className={messages.clear}>
+                            <div onClick={clearInput} className={MessagesStyle.clear}>
                                 <img src="../img/pages/messages/clear.svg" alt=''/>
                             </div>
                             </>
@@ -73,7 +87,7 @@ function Messages() {
                 {
                         (inputSearchValue === '')?
                             <>
-                            <article className={messages.scroll}>
+                            <article className={MessagesStyle.scroll}>
                                 {RandomMessages.map((item)=>(
                                         <MessageCard
                                             props={item}
@@ -83,7 +97,7 @@ function Messages() {
                             </article>
                             </>
                         :
-                            <article className={messages.notFound}>
+                            <article className={MessagesStyle.notFound}>
                               
                                 <span>Ничего не найдено</span>
                                 
@@ -98,7 +112,15 @@ function Messages() {
 
             
             <aside className={ourStyle.aside}>
-                блок фильтрации/навигации
+                <ul>
+                    <RightMenu
+                        links={
+                            [{id: 1, name: 'Все чаты', link: '#', select: true},
+                            {id: 2, name: 'Непрочитанные', link: '#', select: true},
+                            {id: 3, name: 'Архив', link: '#', select: true},]
+                        }
+                    ></RightMenu>
+                </ul>
             </aside>
         </div>
     
