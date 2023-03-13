@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    .links{
+        padding: 0px 12px 0px;
+        display: flex;
+        align-items: center;
+        height: 35px;
+        border-radius: 10px;
+        margin-bottom: 3px;
+    }
+    .links:last-of-type{
+        margin-bottom: 0px;
+    }
+    .links:hover{
+        background-color: #edeef0;
+        cursor: pointer;
+    }
+}
