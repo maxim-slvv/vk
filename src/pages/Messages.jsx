@@ -1,11 +1,12 @@
 import React from 'react';
-import ourStyle from './twoColumns.module.scss' //общие стили
 
-import MessagesStyle from './Messages.module.scss'
 import { MessageCard } from '../components/MessageCard';
 import { RightMenu } from '../components/RightMenu/RightMenu'
 
-function Messages() {
+import ourStyle from './twoColumns.module.scss' 
+import MessagesStyle from './Messages.module.scss'
+
+export function Messages() {
 
     //* Заготовка + тестовый массив
     // const profiles = [
@@ -51,7 +52,11 @@ function Messages() {
         sender: 'not-you',
         looked: true,
         visit: '37 мин'},
-
+    ]
+    const asideMenu = [ 
+        {id: 1, name: 'Все чаты', link: '#', select: true},
+        {id: 2, name: 'Непрочитанные', link: '#', select: true},
+        {id: 3, name: 'Архив', link: '#', select: true},
     ]
     
     // фокусировка на поле - скрывает чаты и выводит подсказки для поиска
@@ -59,7 +64,7 @@ function Messages() {
     const onFocusInput = () => {
         setOnSearchFocus(!(onSearchFocus))
     }
-
+    
     //очистка поля ввода
     const[inputSearchValue, setInputSearchValue] = React.useState('')
     const InputChange = (event) => {
@@ -69,70 +74,52 @@ function Messages() {
         setInputSearchValue('')
     }
 
+    const input = () =>{
+        return (inputSearchValue === '')?
+        <>
+        <img src="../img/pages/messages/1.svg" alt=''/>
+        <img src="../img/pages/messages/2.svg" alt=''/>
+        <img src="../img/pages/messages/3.svg" alt=''/>
+        </>
+    :
+        <>
+        <div onClick={clearInput} className={MessagesStyle.clear}>
+            <img src="../img/pages/messages/clear.svg" alt=''/>
+        </div>
+        </>
+    }
+    const selectDialog =()=> {
+        return (inputSearchValue === '')?
+        <article className={MessagesStyle.scroll}>
+            {RandomMessages.map((item)=>(
+                <MessageCard
+                    props={item}
+                    key={item.user}
+                />
+            ))}                                
+        </article>
+        :
+        <article className={MessagesStyle.notFound}>
+            <span>Ничего не найдено</span>
+            <img src="../../img/pages/messages/not__found.png" alt="" />
+        </article>
+    }
+
+
     return (
         <div className={ourStyle.content}>
             <section className={ourStyle.section}>
-
                 <div className={MessagesStyle.search}>
                     <input type="text" value={inputSearchValue} onChange={InputChange} onFocus={onFocusInput} onBlur={onFocusInput}  placeholder='Поиск'/>
-
-                    {/*//? и на них сделать Link что бы подсветка была */}
-                    {
-                        (inputSearchValue === '')?
-                            <>
-                            <img src="../img/pages/messages/1.svg" alt=''/>
-                            <img src="../img/pages/messages/2.svg" alt=''/>
-                            <img src="../img/pages/messages/3.svg" alt=''/>
-                            </>
-                        :
-                            <>
-                            <div onClick={clearInput} className={MessagesStyle.clear}>
-                                <img src="../img/pages/messages/clear.svg" alt=''/>
-                            </div>
-                            </>
-                    }
+                    {input()}
                 </div>
-                {
-                        (inputSearchValue === '')?
-                            <>
-                            <article className={MessagesStyle.scroll}>
-                                {RandomMessages.map((item)=>(
-                                        <MessageCard
-                                            props={item}
-                                            key={item.user}
-                                        />
-                                    ))}                                
-                            </article>
-                            </>
-                        :
-                            <article className={MessagesStyle.notFound}>
-                              
-                                <span>Ничего не найдено</span>
-                                
-                                <img src="../../img/pages/messages/not__found.png" alt="" />
-                               
-                               
-                             
-                            </article>
-                    }
+                { selectDialog() }
             </section>
-
-
-            
             <aside className={ourStyle.aside}>
                 <ul>
-                    <RightMenu
-                        links={
-                            [{id: 1, name: 'Все чаты', link: '#', select: true},
-                            {id: 2, name: 'Непрочитанные', link: '#', select: true},
-                            {id: 3, name: 'Архив', link: '#', select: true},]
-                        }
-                    ></RightMenu>
+                    <RightMenu links={asideMenu}/>
                 </ul>
             </aside>
         </div>
-    
     );
 }
-
-export default Messages;
