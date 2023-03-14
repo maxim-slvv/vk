@@ -9,12 +9,24 @@
       cursor: pointer;
     }
     .avatar {
-       flex: 0 0 50px;
-       overflow: hidden;
-       border-radius: 50%;
-       margin-right: 10px;
+      position: relative;
+      flex: 0 0 50px;
+      margin-right: 10px;
+      img{
+        border-radius: 50%;
+      overflow: hidden;
+      }
+      label{
+        position: absolute;
+        top: 75%;
+        left: 75%;
+        background-color: #4bb34b;
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        border: 2px solid white;
+      }
     }
-  
     .row {
       display: flex;
       flex-direction: column;
@@ -55,29 +67,30 @@
             overflow: hidden;
             border-radius: 50%;
         }
+        span, p {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
         span{
           display: flex;
           height: 25px;
           align-items: center;
-          padding: 8px;
+       
+        
           border-radius: 5px;
-          
           //! ту троеточие не работает потом попробовать еще
-          width: 400px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-
+          width: 430px;
+         
           //!непрочитанное сообщение
           //*потом вынесу в отдельный класс
           background-color: rgba(174, 183, 194, 0.12);
         }
         p{
+          display: flex;
           padding: 8px 0px;
           width: 433px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+        
         }
       }
     }

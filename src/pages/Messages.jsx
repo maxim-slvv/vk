@@ -2,8 +2,8 @@ import React from 'react';
 import ourStyle from './twoColumns.module.scss' //общие стили
 
 import MessagesStyle from './Messages.module.scss'
-import MessageCard from '../components/MessageCard';
-import {RightMenu} from '../components/RightMenu/RightMenu'
+import { MessageCard } from '../components/MessageCard';
+import { RightMenu } from '../components/RightMenu/RightMenu'
 
 function Messages() {
 
@@ -20,28 +20,36 @@ function Messages() {
     //     },
     // ]
     const RandomMessages = [
-        {username: 'Юра Рябцев', 
+        {username: 'Юра Рябцев',
         avatar: '../../img/pages/messages/user__1.jpg',
-        preview: 'я запустил стрим, заходи...',
+        online: false,
+        preview: 'я запустил стрим, заходи',
         sender: 'not-you',
+        looked: true,
         visit: '12 мин'},
 
         {username: 'Ruslan Muling', 
         avatar: '../../img/pages/messages/user__2.jpg',
-        preview: 'Привет, послушай песню, вчера сводил весь день...',
+        online: true,
+        preview: 'Привет, послушай песню, вчера сводил весь день',
         sender: 'not-you',
+        looked: true,
         visit: '27 мин'},
 
         {username: 'Daria Tensei', 
+        online: false,
         avatar: '../../img/pages/messages/user__3.jpg',
         preview: 'Даша, дай списать 😁',
         sender: 'you',
+        looked: false,
         visit: '29 мин'},
 
         {username: 'Андрей Лазаренко', 
         avatar: '../../img/pages/messages/user__4.jpg',
+        online: true,
         preview: 'Я удалил доту..., проиграл отцу в споре, не хочешь в осу?😁',
         sender: 'not-you',
+        looked: true,
         visit: '37 мин'},
 
     ]
